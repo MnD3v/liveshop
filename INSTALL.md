@@ -6,7 +6,7 @@ Avant de commencer, assurez-vous d'avoir installé :
 
 - **Flutter SDK** (version 3.0 ou supérieure)
 - Téléchargez depuis : https://flutter.dev/docs/get-started/install
-- **Un éditeur de code** (VS Code ou Android Studio recommandé)
+- **Un éditeur de code** (VS Code: https://code.visualstudio.com/download)
 - **Git** pour cloner le projet
 
 ## Installation
@@ -14,7 +14,7 @@ Avant de commencer, assurez-vous d'avoir installé :
 ### 1. Cloner le projet
 
 ```bash
-git clone <url-du-repo>
+git clone https://github.com/MnD3v/liveshop.git
 cd liveshop
 ```
 
@@ -93,20 +93,7 @@ flutter pub get
 # Vérifier les problèmes
 flutter doctor
 
-# Analyser le code
-flutter analyze
 
-# Formater le code
-dart format .
-```
-
-## Développement
-
-Pour le développement en mode watch (régénération automatique) :
-
-```bash
-dart run build_runner watch --delete-conflicting-outputs
-```
 
 ## Support
 

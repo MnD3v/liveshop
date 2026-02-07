@@ -2,6 +2,12 @@
 
 Une application Flutter moderne pour le shopping en direct avec chat en temps réel, gestion de panier et filtrage par catégories.
 
+## Démonstration Vidéo
+
+[![Regarder la Démo](https://i.ibb.co/LVyp8HV/image.png)](https://screenrec.com/share/JeoKzgfCk0)
+
+Cliquez sur le badge ci-dessus pour voir l'application en action.
+
 ## Fonctionnalités
 
 - Événements en direct : Regardez des streams de shopping en temps réel

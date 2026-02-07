@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 import 'package:liveshop/providers/live_event_provider.dart';
 import 'package:liveshop/models/live_event.dart';
 import 'package:liveshop/config/theme_config.dart';
@@ -185,7 +186,9 @@ class _HomeContent extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.push('/notifications');
+                      },
                       icon: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(

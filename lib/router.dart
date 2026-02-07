@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:liveshop/screens/home/home_screen.dart';
 import 'package:liveshop/screens/live/live_event_screen.dart';
 import 'package:liveshop/screens/checkout/checkout_screen.dart';
+import 'package:liveshop/screens/notifications/notifications_screen.dart'; // Import NotificationsScreen
 // import 'package:liveshop/screens/product/product_detail_screen.dart';
 // import 'package:liveshop/screens/profile/profile_screen.dart';
 
@@ -27,6 +28,10 @@ final router = GoRouter(
         GoRoute(
           path: 'checkout',
           builder: (context, state) => const CheckoutScreen(),
+        ),
+        GoRoute(
+          path: 'notifications',
+          builder: (context, state) => const NotificationsScreen(),
         ),
       ],
     ),
