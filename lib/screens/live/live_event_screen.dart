@@ -7,7 +7,8 @@ import 'package:liveshop/providers/live_event_provider.dart';
 import 'package:liveshop/widgets/live/video_player_widget.dart';
 import 'package:liveshop/widgets/live/chat_widget.dart';
 import 'package:liveshop/widgets/live/product_list_widget.dart';
-import 'package:liveshop/models/live_event.dart'; // Explicit import
+import 'package:liveshop/models/live_event.dart'; // Import explicite
+import 'package:liveshop/widgets/app_icons.dart';
 
 class LiveEventScreen extends StatefulWidget {
   final String eventId;
@@ -149,7 +150,11 @@ class _LiveEventScreenState extends State<LiveEventScreen>
             top: 40,
             right: 16,
             child: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white, size: 30),
+              icon: AppIcons.icon(
+                AppIcons.close,
+                color: Colors.white,
+                size: 30,
+              ),
               onPressed: () => context.pop(),
             ),
           ),
@@ -158,7 +163,7 @@ class _LiveEventScreenState extends State<LiveEventScreen>
     );
   }
 
-  // Change dynamic to LiveEvent
+  // Changement de dynamic à LiveEvent
   Widget _buildDesktopLayout(BuildContext context, LiveEvent event) {
     return Scaffold(
       backgroundColor: Colors.black,
@@ -182,20 +187,34 @@ class _LiveEventScreenState extends State<LiveEventScreen>
                   leading: CircleAvatar(
                     backgroundColor: Colors.white10,
                     child: ClipOval(
-                      child: Image.network(
-                        event.seller.logoUrl,
-                        fit: BoxFit.cover,
-                        width: 40,
-                        height: 40,
-                        errorBuilder: (context, error, stackTrace) => Center(
-                          child: Text(
-                            event.seller.name.isNotEmpty
-                                ? event.seller.name[0].toUpperCase()
-                                : '?',
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
+                      child: event.seller.logoUrl.isNotEmpty
+                          ? Image.network(
+                              event.seller.logoUrl,
+                              fit: BoxFit.cover,
+                              width: 40,
+                              height: 40,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                    color: Colors.grey,
+                                    child: Center(
+                                      child: AppIcons.icon(
+                                        AppIcons.person,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ),
+                                    ),
+                                  ),
+                            )
+                          : Container(
+                              color: Colors.grey,
+                              child: Center(
+                                child: AppIcons.icon(
+                                  AppIcons.person,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ),
+                            ),
                     ),
                   ),
                   title: Text(
@@ -207,7 +226,7 @@ class _LiveEventScreenState extends State<LiveEventScreen>
                     style: const TextStyle(color: Colors.white70),
                   ),
                   trailing: IconButton(
-                    icon: const Icon(Icons.close, color: Colors.white),
+                    icon: AppIcons.icon(AppIcons.close, color: Colors.white),
                     onPressed: () => context.pop(),
                   ),
                 ),
@@ -267,7 +286,7 @@ class _LiveEventScreenState extends State<LiveEventScreen>
               child: Row(
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.close, color: Colors.white),
+                    icon: AppIcons.icon(AppIcons.close, color: Colors.white),
                     onPressed: () {
                       context.read<LiveEventProvider>().leaveEvent();
                       context.pop();
@@ -277,24 +296,34 @@ class _LiveEventScreenState extends State<LiveEventScreen>
                     radius: 16,
                     backgroundColor: Colors.white10,
                     child: ClipOval(
-                      child: Image.network(
-                        event.seller.logoUrl,
-                        fit: BoxFit.cover,
-                        width: 32,
-                        height: 32,
-                        errorBuilder: (context, error, stackTrace) => Center(
-                          child: Text(
-                            event.seller.name.isNotEmpty
-                                ? event.seller.name[0].toUpperCase()
-                                : '?',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                      child: event.seller.logoUrl.isNotEmpty
+                          ? Image.network(
+                              event.seller.logoUrl,
+                              fit: BoxFit.cover,
+                              width: 32,
+                              height: 32,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Container(
+                                    color: Colors.grey,
+                                    child: Center(
+                                      child: AppIcons.icon(
+                                        AppIcons.person,
+                                        color: Colors.white,
+                                        size: 16,
+                                      ),
+                                    ),
+                                  ),
+                            )
+                          : Container(
+                              color: Colors.grey,
+                              child: Center(
+                                child: AppIcons.icon(
+                                  AppIcons.person,
+                                  color: Colors.white,
+                                  size: 16,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -313,13 +342,10 @@ class _LiveEventScreenState extends State<LiveEventScreen>
                         Row(
                           children: [
                             if (event.status == LiveEventStatus.live) ...[
-                              Container(
-                                width: 8,
-                                height: 8,
-                                decoration: const BoxDecoration(
-                                  color: Colors.red,
-                                  shape: BoxShape.circle,
-                                ),
+                              AppIcons.icon(
+                                AppIcons.flash,
+                                color: Colors.red,
+                                size: 10,
                               ),
                               const SizedBox(width: 4),
                             ],
@@ -382,6 +408,8 @@ class _LiveEventScreenState extends State<LiveEventScreen>
                           initialChildSize: 0.6,
                           minChildSize: 0.3,
                           maxChildSize: 0.8,
+                          expand:
+                              false, // Important pour laisser le clic passer à travers
                           builder: (context, scrollController) {
                             return ProductListWidget(
                               scrollController: scrollController,
@@ -390,10 +418,7 @@ class _LiveEventScreenState extends State<LiveEventScreen>
                         ),
                       );
                     },
-                    child: const Icon(
-                      Icons.shopping_bag_outlined,
-                      color: Colors.white,
-                    ),
+                    child: AppIcons.icon(AppIcons.bag, color: Colors.white),
                   ),
                 ),
               ),

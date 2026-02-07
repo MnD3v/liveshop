@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:liveshop/providers/live_event_provider.dart';
 import 'package:liveshop/models/chat_message.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:liveshop/widgets/app_icons.dart';
 
 class ChatWidget extends StatefulWidget {
   final bool isReadOnly;
@@ -37,7 +38,7 @@ class _ChatWidgetState extends State<ChatWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.transparent, // Let background show through
+        color: Colors.transparent, // Laisser le fond apparaître
       ),
       child: Row(
         children: [
@@ -70,9 +71,15 @@ class _ChatWidgetState extends State<ChatWidget> {
             ),
           ),
           const SizedBox(width: 12),
-          _ReactionButton(emoji: '❤️', onTap: () => _sendMessage('❤️')),
+          _ReactionButton(
+            icon: AppIcons.icon(AppIcons.heart, color: Colors.white, size: 20),
+            onTap: () => _sendMessage('❤️'),
+          ),
           const SizedBox(width: 8),
-          _ReactionButton(emoji: '🔥', onTap: () => _sendMessage('🔥')),
+          _ReactionButton(
+            icon: AppIcons.icon(AppIcons.flash, color: Colors.white, size: 20),
+            onTap: () => _sendMessage('🔥'),
+          ),
           const SizedBox(width: 8),
           Container(
             decoration: const BoxDecoration(
@@ -80,11 +87,7 @@ class _ChatWidgetState extends State<ChatWidget> {
               shape: BoxShape.circle,
             ),
             child: IconButton(
-              icon: const Icon(
-                Icons.send_rounded,
-                color: Colors.white,
-                size: 20,
-              ),
+              icon: AppIcons.icon(AppIcons.send, color: Colors.white, size: 20),
               onPressed: () => _sendMessage(_controller.text),
             ),
           ),
@@ -101,10 +104,10 @@ class _ChatWidgetState extends State<ChatWidget> {
 }
 
 class _ReactionButton extends StatelessWidget {
-  final String emoji;
+  final Widget icon;
   final VoidCallback onTap;
 
-  const _ReactionButton({required this.emoji, required this.onTap});
+  const _ReactionButton({required this.icon, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +122,7 @@ class _ReactionButton extends StatelessWidget {
           shape: BoxShape.circle,
           border: Border.all(color: Colors.white.withOpacity(0.1)),
         ),
-        child: Text(emoji, style: const TextStyle(fontSize: 20)),
+        child: icon,
       ),
     );
   }
@@ -142,12 +145,12 @@ class _ChatListState extends State<_ChatList> {
     super.didUpdateWidget(oldWidget);
     if (widget.newMessage != null &&
         widget.newMessage != oldWidget.newMessage) {
-      // Avoid duplicates roughly
+      // Éviter les doublons (vérification basique)
       if (_messages.isEmpty || _messages.last.id != widget.newMessage!.id) {
         setState(() {
           _messages.add(widget.newMessage!);
         });
-        // Scroll to bottom
+        // Défiler vers le bas
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (_scrollController.hasClients) {
             _scrollController.animateTo(
@@ -193,8 +196,8 @@ class _ChatListState extends State<_ChatList> {
                         color: Color(0xFFFF2600),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(
-                        Icons.star,
+                      child: AppIcons.icon(
+                        AppIcons.star,
                         color: Colors.white,
                         size: 10,
                       ),

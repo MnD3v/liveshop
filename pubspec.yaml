@@ -48,6 +48,7 @@ dependencies:
   cached_network_image: ^3.4.1
   google_fonts: ^8.0.1
   rxdart: ^0.28.0
+  flutter_svg: ^2.2.3
 
 dev_dependencies:
   flutter_test:

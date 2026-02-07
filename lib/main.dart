@@ -17,9 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Instantiate services
-    // Ideally use GetIt or similar for DI, but strictly following Provider requirement and structure.
-    // Ensure these are singletons or scoped appropriately.
+    // Instancier les services
+    // Idéalement, utilisez GetIt ou similaire pour l'injection de dépendances,
+    // mais ici on suit strictement la structure requise avec Provider.
+    // Assurez-vous que ce sont des singletons ou qu'ils sont scopés correctement.
     final apiService = ApiService();
     final socketService = SocketService();
 

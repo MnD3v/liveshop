@@ -5,6 +5,7 @@ import 'package:liveshop/providers/user_provider.dart';
 import 'package:liveshop/models/order.dart';
 import 'package:liveshop/models/user_notification.dart';
 import 'package:intl/intl.dart';
+import 'package:liveshop/widgets/app_icons.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -227,7 +228,7 @@ class _NotificationCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
+          AppIcons.icon(
             _getIconForType(notification.type),
             color: _getColorForType(notification.type),
             size: 20,
@@ -274,16 +275,16 @@ class _NotificationCard extends StatelessWidget {
     );
   }
 
-  IconData _getIconForType(String type) {
+  String _getIconForType(String type) {
     switch (type) {
       case 'new_order':
-        return Icons.shopping_bag;
+        return AppIcons.bag;
       case 'product_featured':
-        return Icons.star;
+        return AppIcons.star;
       case 'live_event_starting':
-        return Icons.live_tv;
+        return AppIcons.liveTv;
       default:
-        return Icons.notifications;
+        return AppIcons.bell;
     }
   }
 

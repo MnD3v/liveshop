@@ -5,7 +5,7 @@
 Avant de commencer, assurez-vous d'avoir installé :
 
 - **Flutter SDK** (version 3.0 ou supérieure)
-  - Téléchargez depuis : https://flutter.dev/docs/get-started/install
+- Téléchargez depuis : https://flutter.dev/docs/get-started/install
 - **Un éditeur de code** (VS Code ou Android Studio recommandé)
 - **Git** pour cloner le projet
 
@@ -57,20 +57,7 @@ cp lib/mock-api-data.json assets/mock-api-data.json
 flutter run -d chrome
 ```
 
-#### Sur un émulateur Android
-```bash
-flutter run -d <device-id>
-```
 
-#### Sur un émulateur iOS (macOS uniquement)
-```bash
-flutter run -d <device-id>
-```
-
-Pour voir la liste des appareils disponibles :
-```bash
-flutter devices
-```
 
 ## Dépannage
 

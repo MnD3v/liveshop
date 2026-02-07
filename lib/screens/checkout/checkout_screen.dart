@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:liveshop/providers/cart_provider.dart';
-import 'package:liveshop/models/order.dart'; // For ShippingAddress
+import 'package:liveshop/models/order.dart'; // Pour ShippingAddress
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
@@ -47,7 +47,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // Order Summary
+                  // Résumé de la commande
                   Text(
                     'Order Summary',
                     style: Theme.of(context).textTheme.titleLarge,
@@ -93,7 +93,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ),
                   const SizedBox(height: 24),
 
-                  // Shipping Address
+                  // Adresse de livraison
                   Text(
                     'Shipping Address',
                     style: Theme.of(context).textTheme.titleLarge,
@@ -191,8 +191,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             onPressed: () {
                                               Navigator.pop(
                                                 context,
-                                              ); // Close dialog
-                                              context.go('/'); // Go home
+                                              ); // Fermer la boîte de dialogue
+                                              context.go(
+                                                '/',
+                                              ); // Retour à l'accueil
                                             },
                                             child: const Text('OK'),
                                           ),

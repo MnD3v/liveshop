@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liveshop/models/product.dart';
 import 'package:liveshop/providers/cart_provider.dart';
+import 'package:liveshop/widgets/app_icons.dart';
 
 class ProductDetailDialog extends StatefulWidget {
   final Product product;
@@ -75,8 +76,8 @@ class _ProductDetailDialogState extends State<ProductDetailDialog> {
                           color: Colors.black.withOpacity(0.5),
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(
-                          Icons.close,
+                        child: AppIcons.icon(
+                          AppIcons.close,
                           color: Colors.white,
                           size: 20,
                         ),
@@ -206,8 +207,8 @@ class _ProductDetailDialogState extends State<ProductDetailDialog> {
                             child: Row(
                               children: [
                                 IconButton(
-                                  icon: const Icon(
-                                    Icons.remove,
+                                  icon: AppIcons.icon(
+                                    AppIcons.remove,
                                     color: Colors.white,
                                     size: 20,
                                   ),
@@ -224,8 +225,8 @@ class _ProductDetailDialogState extends State<ProductDetailDialog> {
                                   ),
                                 ),
                                 IconButton(
-                                  icon: const Icon(
-                                    Icons.add,
+                                  icon: AppIcons.icon(
+                                    AppIcons.add,
                                     color: Colors.white,
                                     size: 20,
                                   ),

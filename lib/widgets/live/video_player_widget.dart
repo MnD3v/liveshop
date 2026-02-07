@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:liveshop/widgets/app_icons.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
   final String? streamUrl;
@@ -92,7 +93,11 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           Center(
             child: IconButton(
               iconSize: 64,
-              icon: const Icon(Icons.play_circle_fill, color: Colors.white70),
+              icon: AppIcons.icon(
+                AppIcons.play,
+                color: Colors.white70,
+                size: 64,
+              ),
               onPressed: () {
                 setState(() {
                   _controller!.play();
@@ -102,7 +107,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           ),
         if (_isBuffering)
           const Center(child: CircularProgressIndicator(color: Colors.white)),
-        // Contrôles overlay - simplified
+        // Contrôles superposés - simplifiés
         _buildControls(),
       ],
     );
@@ -113,8 +118,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       bottom: 20,
       left: 20,
       child: IconButton(
-        icon: Icon(
-          _controller!.value.isPlaying ? Icons.pause : Icons.play_arrow,
+        icon: AppIcons.icon(
+          _controller!.value.isPlaying ? AppIcons.pause : AppIcons.play,
           color: Colors.white,
           size: 30,
         ),

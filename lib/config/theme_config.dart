@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ThemeConfig {
-  static const primaryColor = Color(0xFFFF2600); // Vibrant Red/Orange
+  static const primaryColor = Color(0xFFFF2600); // Rouge/Orange Vibrant
   static const secondaryColor = Color(0xFF000000);
   static const surfaceColor = Colors.white;
-  static const backgroundColor = Color(0xFFF5F5F7); // Light Grey/Off-white
+  static const backgroundColor = Color(0xFFF5F5F7); // Gris Clair/Blanc cassé
 
   static ThemeData get lightTheme {
     return ThemeData(

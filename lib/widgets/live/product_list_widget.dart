@@ -4,6 +4,7 @@ import 'package:liveshop/providers/live_event_provider.dart';
 import 'package:liveshop/models/product.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liveshop/widgets/product/product_detail_dialog.dart';
+import 'package:liveshop/widgets/app_icons.dart';
 
 class ProductListWidget extends StatelessWidget {
   final ScrollController? scrollController;
@@ -23,7 +24,7 @@ class ProductListWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              // Handle bar
+              // Barre de poignée
               Center(
                 child: Container(
                   margin: const EdgeInsets.only(top: 12, bottom: 8),
@@ -49,9 +50,9 @@ class ProductListWidget extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 12.0, left: 4),
                         child: Row(
                           children: [
-                            const Icon(
-                              Icons.flash_on,
-                              color: Color(0xFFFF2600),
+                            AppIcons.icon(
+                              AppIcons.flash,
+                              color: const Color(0xFFFF2600),
                               size: 16,
                             ),
                             const SizedBox(width: 4),
@@ -199,7 +200,11 @@ class _ProductCard extends StatelessWidget {
                   ),
                   child: IconButton(
                     padding: EdgeInsets.zero,
-                    icon: const Icon(Icons.add, color: Colors.black, size: 20),
+                    icon: AppIcons.icon(
+                      AppIcons.add,
+                      color: Colors.black,
+                      size: 20,
+                    ),
                     onPressed: () {
                       showDialog(
                         context: context,

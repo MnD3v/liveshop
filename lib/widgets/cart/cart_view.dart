@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:liveshop/providers/cart_provider.dart';
 import 'package:liveshop/config/theme_config.dart';
 import 'package:liveshop/widgets/product/product_detail_dialog.dart';
+import 'package:liveshop/widgets/app_icons.dart';
 
 class CartView extends StatelessWidget {
   const CartView({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class CartView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.shopping_bag_outlined, size: 64, color: Colors.grey),
+                AppIcons.icon(AppIcons.bag, size: 64, color: Colors.grey),
                 const SizedBox(height: 16),
                 Text(
                   'Votre panier est vide',
@@ -50,7 +51,7 @@ class CartView extends StatelessWidget {
                       alignment: Alignment.centerRight,
                       padding: const EdgeInsets.only(right: 20),
                       color: Colors.red,
-                      child: const Icon(Icons.delete, color: Colors.white),
+                      child: AppIcons.icon(AppIcons.trash, color: Colors.white),
                     ),
                     child: InkWell(
                       onTap: () {
@@ -219,7 +220,7 @@ class CartView extends StatelessWidget {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Checkout logic would go here
+                              // La logique de paiement irait ici
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ThemeConfig.primaryColor,
